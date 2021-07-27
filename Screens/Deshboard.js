@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, ScrollView, View, ActivityIndicator } from 'react-native';
+import { Text, ScrollView, View, ActivityIndicator } from 'react-native';
 import WeatherInfo from '../Components/WeatherInfo';
 import UnitsPicker from '../Components/UnitsPicker';
 import { colors } from '../Utils'
@@ -10,7 +10,8 @@ import * as Location from 'expo-location'
 import convertLocalization from '../Utils/ConvertLocalization';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-const WEATHER_API_KEY = 'b3dd48c52ebbab270398c3c1747dc11a'
+const WEATHER_API_KEY = ''
+
 const BASE_URL = (lat, lon, unity, lang) => `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=${unity}&appid=${WEATHER_API_KEY}&lang=${lang}`
 
 EStyleSheet.build({
