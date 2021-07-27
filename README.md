@@ -3,12 +3,12 @@
     <br>
  
 </h1>
+<br>
 <p align="center">
   <a href="#sobre"> <img style="max-width: 8rem; width: 100%" src="./assets/project.png"></a>
   <a href="#license"> <img style="max-width: 8rem; width: 100%" src="./assets/license.png"></a>
 </p>
-<br>
-<br>
+<hr>
 <h2>✨ Preview</h2>
 <div align="center">
 <img src="./assets/preview.gif">
@@ -18,13 +18,11 @@
 <b>Aplicação React Native / Expo</b> desenvolvidada para apresentar dados meteorológicos ao usuário. Os dados são providos pela API <a href="https://openweathermap.org/api/one-call-api">One Call</a>, da Open Weather.
 <br> 
 <h3>📱Principais features</h3>
+➙ Localização do usuário <br>
+➙ Suporte a idiomas com base nas configurações do usuário<br>
+➙ Dados apresentados em duas unidades de medida<br>
+➙ Layout adaptativo (Android / IOS)<br>
 
-```
-➙ Localização do usuário
-➙ Suporte a idiomas com base nas configurações do usuário
-➙ Dados apresentados em duas unidades de medida
-➙ Layout adaptativo (Android / IOS)
-```
 
 <h2 id="tecnologias">⚙️ Tecnologias utilizadas</h2>
 ➙ Figma <br>
@@ -51,7 +49,6 @@ https://openweathermap.org/
 
 # Preencha o sua key em 'WEATHER_API_KEY', dentro do arquivo Deshboard.js na pasta Screens
 
-
 # Inicie a aplicação
 $ expo start
 
@@ -60,6 +57,6 @@ $ expo start
 
 <h2 id="license"> :memo: Licença</h2>
 
-Esse projeto está sob  a Licença MIT. Acesse [LICENSE](https://github.com/diegomagalhaes-dev/crypto-daily/blob/master/LICENSE) para mais informações.
+Esse projeto está sob  a Licença MIT. Acesse [LICENSE](https://github.com/diegomagalhaes-dev/weather_now/blob/master/LICENSE) para mais informações.
 <hr>
 Feito com ♥ por Diêgo Magalhães :wave: <br><a href="https://www.linkedin.com/in/magalhaesdiego/">Fale comigo! 😄</a>
