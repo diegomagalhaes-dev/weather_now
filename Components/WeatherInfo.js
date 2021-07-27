@@ -1,35 +1,45 @@
-import React from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import React, { useState, useEffect } from 'react'
+import { View, Text, Image } from 'react-native'
 import { colors } from '../Utils'
-
+import EStyleSheet from 'react-native-extended-stylesheet';
+import WeatherpHour from './WeatherpHour';
+import WeatherDetails from '../Components/WeatherDetails';
 
 const { PRIMARY_COLOR, SECONDARY_COLOR } = colors;
 
 const WeatherInfo = ({ currentWeather, unitySystem }) => {
-    const {
-        main: { temp },
-        weather: [details],
-        name,
-    } = currentWeather
-    const { icon, main, description } = details;
+    const [deshData, setDeshData] = useState(currentWeather['current'])
+
+    const { temp, weather: [{ icon, description }] } = deshData;
 
     const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`
 
     return (
-        <View style={style.primaryInfo}>
-            <Image style={style.weatherIcon} source={{ uri: iconUrl }} />
-            <Text style={style.weatherDescription}>{description}</Text>
-            <Text style={style.textPrimary}>{temp}º</Text>
-        </View>
+        <>
+            <View style={styles.content}>
+                <View style={styles.board}>
+                    <View style={styles.primaryInfo}>
+                        <Image style={styles.weatherIcon} source={{ uri: iconUrl }} />
+                        <Text style={styles.weatherDescription}>{description}</Text>
+                        <Text style={styles.textPrimary}>{Math.round(temp)}º</Text>
+                    </View>
+                    <WeatherDetails deshData={deshData} unitySystem={unitySystem} />
+                </View>
+            </View>
+            <View>
+                <WeatherpHour currentWeather={currentWeather} setDeshData={setDeshData} />
+            </View>
+        </>
     )
+
 }
 
 export default WeatherInfo
 
-const style = StyleSheet.create({
+const styles = EStyleSheet.create({
     weatherIcon: {
-        width: 100,
-        height: 60
+        width: '12rem',
+        height: '8rem',
     },
     weatherDescription: {
         textTransform: 'capitalize',
@@ -55,9 +65,29 @@ const style = StyleSheet.create({
     },
     primaryInfo: {
         alignItems: 'center',
+        width: '100%'
     },
     boardName: {
-        alignItems: 'center'
+        alignItems: 'center',
     },
-    
+    boardInfo: {
+        width: '100%',
+        backgroundColor: 'black'
+    },
+    content: {
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+    },
+    board: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        marginHorizontal: '20%',
+        width: '20rem',
+        backgroundColor: colors.BOARD_COLOR,
+        borderRadius: '.8rem'
+    },
+
 });

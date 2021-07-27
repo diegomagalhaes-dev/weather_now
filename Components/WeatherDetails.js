@@ -1,37 +1,35 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { colors } from '../Utils'
 import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons'
 import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 const { PRIMARY_COLOR, SECONDARY_COLOR, BORDER_COLOR } = colors;
 
 i18n.translations = {
-    pt: {
-        sa: 'Sensação',
-        h: 'humidade',
-        v: 'ventos',
-        p: 'pressão'
-    },
     en: {
         sa: 'Feels Like',
         h: 'humidity',
         v: 'wind speed',
         p: 'pressure'
     },
+    'pt-BR': {
+        sa: 'Sensação',
+        h: 'humidade',
+        v: 'ventos',
+        p: 'pressão'
+    },
 };
 
 i18n.locale = Localization.locale;
 i18n.fallbacks = true;
 
-const WeatherDetails = ({ currentWeather, unitySystem }) => {
-    const {
-        main: { feels_like, humidity, pressure },
-        wind: { speed },
-    } = currentWeather;
+const WeatherDetails = ({ deshData, unitySystem }) => {
+    const { humidity, feels_like, pressure, wind_speed } = deshData
 
-    const windSpeed = unitySystem === 'metric' ? `${Math.round(speed)} m/s` : `${Math.round(speed)} mph`
+    const windSpeed = unitySystem === 'metric' ? `${Math.round(wind_speed)} m/s` : `${Math.round(wind_speed)} mph`
 
     return (
         <View style={styles.weatherDetails}>
@@ -96,7 +94,7 @@ const WeatherDetails = ({ currentWeather, unitySystem }) => {
 
 export default WeatherDetails
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     text: {
         textTransform: 'uppercase',
         fontFamily: 'Mulish_400Regular',
@@ -112,13 +110,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        width: 120,
     },
     weatherDetailsBox: {
-        padding: 8,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingHorizontal: 20,
     },
     weatherDetailsItems: {
     },
@@ -129,9 +124,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+        paddingVertical: '.5rem',
+        width: '10rem',
     },
     textSecondary: {
-        width: 70,
         fontFamily: 'Mulish_700Bold',
         fontSize: 12,
         marginTop: 5,

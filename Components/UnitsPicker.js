@@ -1,6 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, Platform } from 'react-native'
+import { View, Platform } from 'react-native'
 import { Picker } from '@react-native-picker/picker'
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 const UnitsPicker = ({ unitySystem, setUnitySystem }) => {
     return (
@@ -15,19 +16,19 @@ const UnitsPicker = ({ unitySystem, setUnitySystem }) => {
 
 export default UnitsPicker
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
     unitySystem: {
         position: 'absolute',
         ...Platform.select({
             ios: {
-                top: -30,
+                top: '-2rem',
             },
             android: {
-                top: 30,
+                top: '2rem',
             }
         }),
-        left: 20,
-        height: 50,
-        width: 85,
+        left: '.8rem',
+        height:'2rem',
+        width: '5.5rem',
     }
 })

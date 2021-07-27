@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Deshboard from './Pages/Deshboard';
+import { View } from 'react-native';
+import Deshboard from './Screens/Deshboard';
 import AppLoading from 'expo-app-loading';
+import EStyleSheet from 'react-native-extended-stylesheet';
 
 import {
   useFonts,
@@ -26,15 +27,21 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  return (<View style={styles.container}>
-    <Deshboard />
-    <StatusBar style="auto" />
-  </View>)
+  return (
+    <View style={styles.container}>
+      <Deshboard />
+      <StatusBar style="auto" />
+      <View style={styles.view}></View>
+    </View>)
 }
 
-const styles = StyleSheet.create({
+const styles = EStyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
+  view:{
+    marginTop: '1rem'
+  }
 });
