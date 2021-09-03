@@ -1,12 +1,12 @@
 <h1 align="center">
-    <img  style="max-width:320px; width: 100%" alt="Weather app" src="./assets/logo.png" />
+    <img  style="max-width:320px" alt="Weather app" src="./assets/logo.png" />
     <br>
  
 </h1>
 <br>
 <p align="center">
-  <a href="#sobre"> <img style="max-width: 8rem; width: 100%" src="./assets/project.png"></a>
-  <a href="#license"> <img style="max-width: 8rem; width: 100%" src="./assets/license.png"></a>
+  <a href="#sobre"> <img style="max-width: 8rem;" src="./assets/project.png"></a>
+  <a href="#license"> <img style="max-width: 8rem;" src="./assets/license.png"></a>
 </p>
 <hr>
 <h2>✨ Preview</h2>
